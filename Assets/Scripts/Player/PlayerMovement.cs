@@ -18,6 +18,10 @@ public class PlayerMovement : MonoBehaviour
 
 	public Vector3 translation;
 
+	[SerializeField] List<GameObject> grabable;
+	[SerializeField] GameObject pos;
+	GameObject holding = null;
+
 	// Start is called before the first frame update
 	void Start()
 	{
@@ -68,6 +72,40 @@ public class PlayerMovement : MonoBehaviour
 		animator.SetFloat("WalkSpeed", animSpeed);
 
 		rigidbody.MoveRotation(rotation);
+
+		if (Input.GetKeyDown(KeyCode.Mouse0))
+		{
+			if (grabable == null)
+			{
+
+			}
+			else
+			{
+				if (holding != null) holding = null;
+				else
+				{
+					foreach (GameObject go in grabable)
+					{
+						if (holding == null) holding = go;
+						else
+						{
+							if (Vector3.Distance(go.transform.position, transform.position) < Vector3.Distance(holding.transform.position, transform.position))
+							{
+								holding = go;
+							}
+						}
+					}
+				}
+						
+				
+			}
+		}
+		if (holding != null)
+		{
+			holding.gameObject.transform.position = pos.transform.position;
+		}
+
+
 	}
 
 	private void FixedUpdate()
@@ -78,5 +116,16 @@ public class PlayerMovement : MonoBehaviour
 	bool Grounded()
 	{
 		return Physics.Raycast(transform.position, -Vector3.up, distToGround, 9);
+	}
+
+
+	private void OnTriggerEnter(Collider other)
+	{
+		if (other.gameObject.tag == "Grabable") grabable.Add(other.gameObject);
+	}
+
+	private void OnTriggerExit(Collider other)
+	{
+		if (other.gameObject.tag == "Grabable") grabable.Remove(other.gameObject);
 	}
 }
