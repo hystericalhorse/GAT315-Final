@@ -5,13 +5,20 @@ using UnityEngine;
 
 public class GravWell : MonoBehaviour
 {
+	[SerializeField] float multiplyer = 0;
+
 	List<GameObject> obj = new List<GameObject>();
 
 	private void FixedUpdate()
 	{
 		foreach (GameObject obj in obj)
 		{
-			if (obj.TryGetComponent(out Rigidbody rb)) rb.AddForce((-Physics.gravity * rb.mass) * 1.2f);
+			if (obj.TryGetComponent(out Rigidbody rb))
+			{
+				float y = (obj.transform.position.y - transform.position.y) + 0.1f; 
+
+				rb.AddForce((Physics.gravity * multiplyer) * -(1/y), ForceMode.Impulse);
+			}
 		}
 	}
 
