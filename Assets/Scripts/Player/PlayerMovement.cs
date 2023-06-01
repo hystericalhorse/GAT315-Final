@@ -21,7 +21,6 @@ public class PlayerMovement : MonoBehaviour
 	[SerializeField] List<GameObject> grabable;
 	[SerializeField] GameObject pos;
 	GameObject holding = null;
-	Rigidbody Holdrb;
 
 	// Start is called before the first frame update
 	void Start()
@@ -96,7 +95,6 @@ public class PlayerMovement : MonoBehaviour
 							}
 						}
 					}
-					Holdrb = holding.GetComponent<Rigidbody>();
 				}
 						
 				
@@ -104,7 +102,6 @@ public class PlayerMovement : MonoBehaviour
 		}
 		if (holding != null)
 		{
-			Holdrb.velocity = Vector3.zero;
 			holding.gameObject.transform.position = pos.transform.position;
 		}
 
