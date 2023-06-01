@@ -2499,7 +2499,7 @@ GameObject:
   - component: {fileID: 566062874}
   m_Layer: 0
   m_Name: Changeable
-  m_TagString: Untagged
+  m_TagString: Grabable
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4064,6 +4064,19 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6694804328439346338, guid: b911b6a414bf8ba47bb2e996ded7239a, type: 3}
   m_PrefabInstance: {fileID: 870016881}
   m_PrefabAsset: {fileID: 0}
+--- !u!135 &842459157
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 842459151}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.76544905
+  m_Center: {x: 0, y: 0.7470422, z: 0}
 --- !u!1001 &844486040
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4302,6 +4315,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6694804328439346338, guid: b911b6a414bf8ba47bb2e996ded7239a, type: 3}
       propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6694804328439346338, guid: b911b6a414bf8ba47bb2e996ded7239a, type: 3}
+      propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
