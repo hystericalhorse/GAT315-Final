@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Rocket
   m_EditorClassIdentifier: 
   Timer: 3
-  Power: 2200
+  Power: 2400
