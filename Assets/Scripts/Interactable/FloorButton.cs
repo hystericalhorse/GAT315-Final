@@ -12,7 +12,6 @@ public class FloorButton : MonoBehaviour
 
 	private void OnTriggerEnter(Collider other)
 	{
-		Debug.Log("Button Enter");
 		if (pressers.Count == 0) animator.SetBool("Pressed", true);
 		if (target != null)
         {
@@ -31,7 +30,6 @@ public class FloorButton : MonoBehaviour
 
 	private void OnTriggerExit(Collider other)
 	{
-		Debug.Log("Button Exit");
 		pressers.Remove(other.gameObject);
 		if (pressers.Count == 0) animator.SetBool("Pressed", false);
 		if (!singleUse)
