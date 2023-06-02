@@ -12,6 +12,8 @@ public class PlayerMovement : MonoBehaviour
 
 	Vector3 offset;
 
+	public GameManager manager;
+
 	public float distToGround;
 
 	public bool isGrounded;
