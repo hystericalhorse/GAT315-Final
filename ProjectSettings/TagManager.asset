@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Grabable
+  - Floor
   layers:
   - Default
   - TransparentFX
