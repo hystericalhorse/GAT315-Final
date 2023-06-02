@@ -28,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
 		rigidbody = GetComponent<Rigidbody>();
 		animator = GetComponent<Animator>();
 
-		distToGround = GetComponent<Collider>().bounds.extents.y;
+		//distToGround = GetComponent<Collider>().bounds.extents.y;
 	}
 
 	// Update is called once per frame
