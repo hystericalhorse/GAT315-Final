@@ -125,6 +125,7 @@ public class PlayerMovement : MonoBehaviour
 	private void OnTriggerEnter(Collider other)
 	{
 		if (other.gameObject.tag == "Grabable") grabable.Add(other.gameObject);
+		if (other.gameObject.tag == "Finish") manager.gamestate = GameManager.GameState.Win;
 	}
 
 	private void OnTriggerExit(Collider other)

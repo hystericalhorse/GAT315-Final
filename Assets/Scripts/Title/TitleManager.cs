@@ -12,7 +12,7 @@ public class TitleManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Cursor.lockState = CursorLockMode.None;
     }
 
     // Update is called once per frame
@@ -32,7 +32,5 @@ public class TitleManager : MonoBehaviour
         Debug.Log("Quit Game");
         Application.Quit();
     }
-
-
    
 }

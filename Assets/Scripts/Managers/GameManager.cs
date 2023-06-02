@@ -8,13 +8,15 @@ public class GameManager : MonoBehaviour
 {
     public enum GameState
     {
-        Start, Play, Pause, Win, Lose, Restart
+        Start, Play, Pause, Win, Lose, Over, Restart
     }
 
 	[NonSerialized] public GameState gamestate;
 	[SerializeField, Description("Game Length in Minutes")] public float gameLength = 0;
     [NonSerialized] public float gameTimer;
     [NonSerialized] public float runTime;
+
+    [SerializeField] TitleManager sceneswap;
 
     // Start is called before the first frame update
     void Start()
@@ -43,12 +45,21 @@ public class GameManager : MonoBehaviour
                 break;
             case GameState.Pause: break;
             case GameState.Win:
-
+                Debug.Log("Game Win!");
+                StartCoroutine(GameOver());
                 break;
             case GameState.Lose:
 
                 break;
+            case GameState.Over: break;
             case GameState.Restart: break;
         }
     }
+
+    IEnumerator GameOver()
+    {
+        yield return new WaitForSeconds(1);
+
+        sceneswap.StartGame();
+	}
 }
