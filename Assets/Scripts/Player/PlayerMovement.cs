@@ -115,7 +115,8 @@ public class PlayerMovement : MonoBehaviour
 
 	bool Grounded()
 	{
-		return Physics.Raycast(transform.position, -Vector3.up, distToGround, 9);
+		LayerMask mask = LayerMask.GetMask("Ground");
+		return Physics.Raycast(transform.position, -Vector3.up, 0.1f, mask);
 	}
 
 
